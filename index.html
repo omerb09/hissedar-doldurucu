@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hissedar Toplu Doldurma — Kurulum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,800;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0e27;
+    --ink-soft: #4a5168;
+    --paper: #faf8f3;
+    --paper-2: #f3efe5;
+    --accent: #2563eb;
+    --accent-dark: #1e40af;
+    --success: #16a34a;
+    --warn: #d97706;
+    --line: #d4cdb8;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(37, 99, 235, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(217, 119, 6, 0.04) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 28px 80px;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 800;
+    font-size: clamp(38px, 6vw, 58px);
+    line-height: 1.05;
+    margin: 0 0 14px;
+    letter-spacing: -0.02em;
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .sub {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 560px;
+    margin: 0 0 40px;
+  }
+  .bookmark-card {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    border-radius: 16px;
+    padding: 32px;
+    color: white;
+    box-shadow: 0 20px 50px -15px rgba(37, 99, 235, 0.5);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+  .bookmark-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .bookmark-card h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    margin: 0 0 12px;
+    font-weight: 600;
+  }
+  .bookmark-card p { margin: 0 0 20px; opacity: 0.9; font-size: 15px; }
+  .bookmarklet-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    color: var(--accent-dark);
+    padding: 14px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: grab;
+    user-select: none;
+  }
+  .bookmarklet-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  .bookmarklet-btn:active { cursor: grabbing; }
+  .bookmarklet-btn .arrow {
+    font-size: 18px;
+  }
+  .hint {
+    margin-top: 16px;
+    font-size: 13px;
+    opacity: 0.85;
+    font-style: italic;
+  }
+  h2.section {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 56px 0 24px;
+    letter-spacing: -0.01em;
+  }
+  .steps { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+  .step {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+    counter-increment: step;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 17px;
+  }
+  .step-body { flex: 1; padding-top: 4px; }
+  .step-body strong { display: block; font-size: 16px; margin-bottom: 4px; }
+  .step-body p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+  .step-body kbd {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-bottom-width: 2px;
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .callout {
+    background: var(--paper-2);
+    border-left: 3px solid var(--warn);
+    padding: 16px 20px;
+    border-radius: 6px;
+    margin: 24px 0;
+    font-size: 14.5px;
+  }
+  .callout strong { color: var(--warn); }
+  .callout.info {
+    border-left-color: var(--accent);
+  }
+  .callout.info strong { color: var(--accent); }
+  .example {
+    background: #1a1d2e;
+    color: #e8eaed;
+    padding: 18px;
+    border-radius: 8px;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    margin: 16px 0;
+    white-space: pre;
+  }
+  .example .label { color: #8b94a8; font-family: 'Inter', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 8px; }
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .faq-item {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    background: white;
+  }
+  .faq-item summary {
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  .faq-item[open] summary { margin-bottom: 10px; }
+  .faq-item p { margin: 6px 0 0; color: var(--ink-soft); font-size: 14.5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="eyebrow">ITT / Kobasis</span>
+  <h1>Hissedar bilgilerini<br><em>saniyeler içinde</em> doldur.</h1>
+  <p class="sub">Excel&rsquo;den kopyala, tek tıkla yapıştır. F12 yok, kod yazmak yok, ezberlemek yok. Sadece bir defa kur, her seferinde bir butona bas.</p>
+
+  <div class="bookmark-card">
+    <h2>1. Adım — Butonu yer imlerine ekle</h2>
+    <p>Aşağıdaki butonu <b>tarayıcının yer imleri çubuğuna sürükle-bırak</b>. Üzerine <b>sağ tık &rarr; &ldquo;Yer imlerine ekle&rdquo;</b> seçeneği de çalışır.</p>
+    <a class="bookmarklet-btn" href="javascript:(function()%7Bif%20(document.getElementById('itt-doldur-panel'))%20%7Bdocument.getElementById('itt-doldur-panel').remove()%3Breturn%3B%7Dvar%20panel%20%3D%20document.createElement('div')%3Bpanel.id%20%3D%20'itt-doldur-panel'%3Bpanel.style.cssText%20%3D%20'position%3Afixed%3Btop%3A20px%3Bright%3A20px%3Bwidth%3A380px%3Bbackground%3A%23fff%3Bborder%3A2px%20solid%20%232563eb%3Bborder-radius%3A12px%3Bbox-shadow%3A0%2010px%2040px%20rgba(0%2C0%2C0%2C0.25)%3Bz-index%3A999999%3Bfont-family%3Asystem-ui%2Csans-serif%3Bpadding%3A16px'%3Bpanel.innerHTML%20%3D%20''%2B%20'%3Cdiv%20style%3D%22display%3Aflex%3Bjustify-content%3Aspace-between%3Balign-items%3Acenter%3Bmargin-bottom%3A10px%22%3E'%2B%20'%20%3Cstrong%20style%3D%22color%3A%231e40af%3Bfont-size%3A15px%22%3EHissedar%20Toplu%20Doldurma%3C%2Fstrong%3E'%2B%20'%20%3Cbutton%20id%3D%22itt-kapat%22%20style%3D%22background%3Anone%3Bborder%3Anone%3Bfont-size%3A20px%3Bcursor%3Apointer%3Bcolor%3A%23666%22%3E%26times%3B%3C%2Fbutton%3E'%2B%20'%3C%2Fdiv%3E'%2B%20'%3Cp%20style%3D%22margin%3A0%200%208px%3Bfont-size%3A12px%3Bcolor%3A%23555%22%3EExcel%26%2339%3Bden%20%3Cb%3EAd%20Soyad%3C%2Fb%3E%20ve%20%3Cb%3ETelefon%3C%2Fb%3E%20kolonlar%C4%B1n%C4%B1%20kopyala%2C%20a%C5%9Fa%C4%9F%C4%B1ya%20yap%C4%B1%C5%9Ft%C4%B1r%3A%3C%2Fp%3E'%2B%20'%3Ctextarea%20id%3D%22itt-veri%22%20placeholder%3D%22Ahmet%20Y%C4%B1lmaz%26%239%3B5551234567%26%2310%3BMehmet%20Demir%26%239%3B5559876543%22%20style%3D%22width%3A100%25%3Bheight%3A140px%3Bborder%3A1px%20solid%20%23ccc%3Bborder-radius%3A6px%3Bpadding%3A8px%3Bfont-family%3Amonospace%3Bfont-size%3A12px%3Bbox-sizing%3Aborder-box%3Bresize%3Avertical%22%3E%3C%2Ftextarea%3E'%2B%20'%3Cdiv%20style%3D%22display%3Aflex%3Bgap%3A8px%3Bmargin-top%3A10px%22%3E'%2B%20'%20%3Cbutton%20id%3D%22itt-doldur%22%20style%3D%22flex%3A1%3Bbackground%3A%232563eb%3Bcolor%3A%23fff%3Bborder%3Anone%3Bpadding%3A10px%3Bborder-radius%3A6px%3Bfont-weight%3Abold%3Bcursor%3Apointer%3Bfont-size%3A14px%22%3EDoldur%3C%2Fbutton%3E'%2B%20'%20%3Cbutton%20id%3D%22itt-temizle%22%20style%3D%22background%3A%23f3f4f6%3Bcolor%3A%23333%3Bborder%3A1px%20solid%20%23ccc%3Bpadding%3A10px%2014px%3Bborder-radius%3A6px%3Bcursor%3Apointer%3Bfont-size%3A14px%22%3ETemizle%3C%2Fbutton%3E'%2B%20'%3C%2Fdiv%3E'%2B%20'%3Cdiv%20id%3D%22itt-sonuc%22%20style%3D%22margin-top%3A10px%3Bfont-size%3A13px%3Bmin-height%3A18px%22%3E%3C%2Fdiv%3E'%3Bdocument.body.appendChild(panel)%3Bdocument.getElementById('itt-kapat').onclick%20%3D%20function()%7B%20panel.remove()%3B%20%7D%3Bdocument.getElementById('itt-temizle').onclick%20%3D%20function()%7Bdocument.getElementById('itt-veri').value%20%3D%20''%3Bdocument.getElementById('itt-sonuc').innerHTML%20%3D%20''%3B%7D%3Bdocument.getElementById('itt-doldur').onclick%20%3D%20function()%7Bvar%20veri%20%3D%20document.getElementById('itt-veri').value%3Bvar%20sonuc%20%3D%20document.getElementById('itt-sonuc')%3Bif%20(!veri.trim())%20%7B%20sonuc.innerHTML%20%3D%20'%3Cspan%20style%3D%22color%3A%23dc2626%22%3E%C3%96nce%20veri%20yap%C4%B1%C5%9Ft%C4%B1r!%3C%2Fspan%3E'%3B%20return%3B%20%7Dvar%20satirlar%20%3D%20veri.trim().split('%5Cn').filter(function(s)%7B%20return%20s.trim()%3B%20%7D)%3Bvar%20mevcutSayi%20%3D%20document.querySelectorAll('input%5Bname%5E%3D%22shareholders%5B%22%5D%5Bname%24%3D%22.name%22%5D').length%3Bif%20(mevcutSayi%20%3C%20satirlar.length)%20%7Bsonuc.innerHTML%20%3D%20'%3Cspan%20style%3D%22color%3A%23dc2626%22%3EForm%26%2339%3Bda%20sadece%20%3Cb%3E'%20%2B%20mevcutSayi%20%2B%20'%3C%2Fb%3E%20hissedar%20sat%C4%B1r%C4%B1%20var%2C%20sen%20%3Cb%3E'%20%2B%20satirlar.length%20%2B%20'%3C%2Fb%3E%20sat%C4%B1r%20yap%C4%B1%C5%9Ft%C4%B1rd%C4%B1n.%3Cbr%3E%C3%96nce%20formdaki%20%3Cb%3E%2B%3C%2Fb%3E%20butonuna%20basarak%20'%20%2B%20(satirlar.length%20-%20mevcutSayi)%20%2B%20'%20sat%C4%B1r%20daha%20ekle%2C%20sonra%20tekrar%20Doldur%26%2339%3Ba%20bas.%3C%2Fspan%3E'%3Breturn%3B%7Dfunction%20setVal(el%2C%20val)%7Bvar%20setter%20%3D%20Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype%2C%20'value').set%3Bsetter.call(el%2C%20val)%3Bel.dispatchEvent(new%20Event('input'%2C%20%7B%20bubbles%3A%20true%20%7D))%3Bel.dispatchEvent(new%20Event('change'%2C%20%7B%20bubbles%3A%20true%20%7D))%3Bel.dispatchEvent(new%20Event('blur'%2C%20%7B%20bubbles%3A%20true%20%7D))%3B%7Dfunction%20temizTel(t)%7B%20return%20(t%20%7C%7C%20'').replace(%2F%5CD%2Fg%2C'').replace(%2F%5E0%2F%2C'')%3B%20%7Dvar%20basarili%20%3D%200%2C%20hata%20%3D%200%3Bsatirlar.forEach(function(satir%2C%20i)%7Bvar%20parts%20%3D%20satir.split('%5Ct')%3Bif%20(parts.length%20%3C%202)%20%7Bvar%20m%20%3D%20satir.match(%2F%5E(.%2B%3F)%5Cs%2B(%5C%2B%3F%5Cd%5B%5Cd%5Cs%5C(%5C)%5C-%5D%7B9%2C%7D)%24%2F)%3Bif%20(m)%20parts%20%3D%20%5Bm%5B1%5D%2C%20m%5B2%5D%5D%3B%7Dvar%20isim%20%3D%20(parts%5B0%5D%20%7C%7C%20'').trim()%3Bvar%20tel%20%3D%20temizTel(parts%5B1%5D)%3Bvar%20isimEl%20%3D%20document.querySelector('input%5Bname%3D%22shareholders%5B'%20%2B%20i%20%2B%20'%5D.name%22%5D')%3Bvar%20telEl%20%3D%20document.querySelector('input%5Bname%3D%22shareholders%5B'%20%2B%20i%20%2B%20'%5D.phone_number%22%5D')%3Bif%20(!isimEl%20%7C%7C%20!telEl)%20%7B%20hata%2B%2B%3B%20return%3B%20%7DisimEl.focus()%3B%20setVal(isimEl%2C%20isim)%3BtelEl.focus()%3B%20setVal(telEl%2C%20tel)%3Bbasarili%2B%2B%3B%7D)%3Bdocument.activeElement%20%26%26%20document.activeElement.blur()%3Bsonuc.innerHTML%20%3D%20'%3Cspan%20style%3D%22color%3A%2316a34a%22%3E%E2%9C%93%20%3Cb%3E'%20%2B%20basarili%20%2B%20'%3C%2Fb%3E%20sat%C4%B1r%20dolduruldu.%3C%2Fspan%3E'%20%2B%20(hata%20%3F%20'%20%3Cspan%20style%3D%22color%3A%23dc2626%22%3E'%20%2B%20hata%20%2B%20'%20hata.%3C%2Fspan%3E'%20%3A%20'')%3B%7D%3B%7D)()%3B" onclick="alert('Bu butonu tıklama — bunu yer imleri çubuğuna sürükle! Detaylar aşağıda.'); return false;">
+      <span class="arrow">&#9881;</span> Hissedar Doldur
+    </a>
+    <div class="hint">Yer imleri çubuğu görünmüyorsa &rarr; Chrome: <b>Ctrl+Shift+B</b>, Safari: <b>Cmd+Shift+B</b></div>
+  </div>
+
+  <h2 class="section">Nasıl kullanılır</h2>
+  <ol class="steps">
+    <li class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Excel&rsquo;de verini hazırla</strong>
+        <p>İki kolon olsun: <b>A</b>&rsquo;da Ad Soyad, <b>B</b>&rsquo;de Telefon. Başlık satırı kopyalama:</p>
+        <div class="example"><span class="label">örnek</span>Ahmet Yılmaz&#9;5551234567
+Mehmet Demir&#9;05559876543
+Ayşe Kaya&#9;0 (555) 111 22 33</div>
+        <p style="margin-top:10px">Telefonun formatı önemli değil &mdash; boşluk, parantez, başındaki <code>0</code> olsa da olmasa da olur, sistem temizliyor.</p>
+      </div>
+    </li>
+    <li class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Kobasis&rsquo;te bağış formunu aç, yeterli <b>+</b> butonuna bas</strong>
+        <p>Kaç kişilik hisse varsa formda o kadar satır olmalı. 7 hissedar gireceksen 6 kere <b>+</b> butonuna bas (1 satır zaten açık).</p>
+      </div>
+    </li>
+    <li class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Excel&rsquo;deki satırları seç, <kbd>Ctrl</kbd>+<kbd>C</kbd> ile kopyala</strong>
+        <p>Sadece Ad Soyad ve Telefon kolonlarını seç, başka bir şeyi değil.</p>
+      </div>
+    </li>
+    <li class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <strong>Yer imi çubuğundan <b>&ldquo;Hissedar Doldur&rdquo;</b> butonuna bas</strong>
+        <p>Sayfanın sağ üstünde küçük bir pencere açılacak.</p>
+      </div>
+    </li>
+    <li class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <strong>Açılan kutuya <kbd>Ctrl</kbd>+<kbd>V</kbd> ile yapıştır, <b>Doldur</b>&rsquo;a bas</strong>
+        <p>Bütün hissedar adı ve telefonları otomatik dolar. Sonuç mesajını gördükten sonra kaydet.</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="callout">
+    <strong>Dikkat:</strong> Butonu çalıştırmadan önce Kobasis bağış formu sayfasında olmalısın. Başka sayfalarda çalışmaz.
+  </div>
+
+  <div class="callout info">
+    <strong>İpucu:</strong> Butonun adını değiştirmek istersen yer imi üzerinde sağ tık &rarr; Düzenle &rarr; Ad: <b>&ldquo;Hissedar Doldur&rdquo;</b> &rarr; Kaydet.
+  </div>
+
+  <h2 class="section">Sık sorulanlar</h2>
+
+  <details class="faq-item">
+    <summary>Yer imi çubuğu görünmüyor, butonu nereye sürükleyeceğim?</summary>
+    <p>Chrome/Edge: <kbd>Ctrl+Shift+B</kbd> (Mac: <kbd>Cmd+Shift+B</kbd>). Yer imi çubuğu açılır, butonu oraya sürükle.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Sürükle-bırak çalışmadı, başka yolu var mı?</summary>
+    <p>Butona <b>sağ tık</b> &rarr; <b>&ldquo;Bağlantıyı yer imlerine ekle&rdquo;</b> / <b>&ldquo;Bu bağlantıyı yer imlerine kopyala&rdquo;</b> seçeneğini kullan. Firefox&rsquo;ta bu seçenek standart.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>&ldquo;Formda X satır var, Y satır yapıştırdın&rdquo; uyarısı aldım</summary>
+    <p>Formdaki hissedar satırı sayısı, yapıştırdığın satır sayısından az. <b>+</b> butonuna basarak eksik satırları ekle, sonra tekrar Doldur&rsquo;a bas.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Telefon numarası garip göründü</summary>
+    <p>Sistem başındaki 0&rsquo;ı ve parantez/boşlukları temizler, 10 haneli bırakır (ör: <code>5551234567</code>). Sayfadaki maske bunu otomatik <code>0 (555) 123 45-67</code> formatına çevirir. Eğer çevirmediyse alana bir kere tıklayıp başka alana geçmen yeterli.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Birden fazla bilgisayarda kullanmak istiyorum</summary>
+    <p>Chrome&rsquo;da yer imlerini senkronize ediyorsan (Google hesabıyla giriş yaptıysan) diğer bilgisayarlarda otomatik gelir. Değilse bu sayfayı oraya da aç ve orada da aynı şekilde sürükle-bırak yap.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Güvenli mi? Verimi nereye gönderiyor?</summary>
+    <p>Hiçbir yere. Buton tamamen yerel tarayıcında çalışıyor &mdash; tek yaptığı, senin yapıştırdığın metni form alanlarına yazmak. İnternete tek bir istek bile göndermiyor. Kodunu görmek istersen yer imini düzenle.</p>
+  </details>
+
+  <footer>
+    ITT / Kobasis için hazırlandı &middot; Tarayıcı içinde çalışır, sunucuya hiçbir veri gitmez.
+  </footer>
+
+</div>
+</body>
+</html>
