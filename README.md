@@ -26,15 +26,17 @@ Chrome/Edge'de yer imi çubuğu: `Ctrl+Shift+B` (Mac: `Cmd+Shift+B`).
 
 ## Geliştirme
 
-Tek dosyalık bir proje: `index.html`. Bookmarklet kaynağı, dosyanın içindeki `<a class="bookmarklet-btn" href="javascript:...">` bağlantısının href'inde URL-encode edilmiş şekilde durur.
+Tek dosyalık bir proje: `index.html`.
 
-Bookmarklet'i güncellemek için:
+- Raw bookmarklet JS'i sayfadaki `<script type="text/plain" id="bookmarklet-src">` bloğunda okunur halde durur.
+- Sayfa yüklenirken alttaki aktivasyon script'i `VERSION` sabitini tek yerden okuyup
+  (a) `[data-version]` işaretli her elemente yazar, (b) JS'i `encodeURIComponent` ile
+  encode edip `.bookmarklet-btn` anchor'ının `href`'ine bağlar.
+- Bookmarklet JS'inde `__VERSION__` placeholder'ı runtime'da gerçek sürümle değişir.
 
-1. JS kaynağını ayrı bir dosyaya çıkar, düzenle.
-2. `node -e "console.log('javascript:'+encodeURIComponent(require('fs').readFileSync('src.js','utf8').replace(/\n/g,'')))"` ile encode et.
-3. Sonucu `href="..."` değeri olarak yerleştir.
-4. Panelin başlığındaki sürüm etiketini (`v1.0`) bir adım artır ki kullanıcılar hangi sürümü kullandıklarını görsün.
+Yeni sürüm çıkarmak için aktivasyon script'indeki `var VERSION = 'v1.x'` satırını değiştir,
+git tag at. Panel başlığı, HTML rozeti ve FAQ'teki örnek otomatik senkron olur.
 
 ## Sürüm
 
-Bookmarklet içi sürüm: **v1.2**
+Git tag'leri otoritedir. En son sürümü `git tag -l | sort -V | tail -1` ile gör.

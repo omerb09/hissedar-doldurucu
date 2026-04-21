@@ -217,8 +217,8 @@
   <div class="bookmark-card">
     <h2>1. Adım — Butonu yer imlerine ekle</h2>
     <p>Aşağıdaki butonu <b>tarayıcının yer imleri çubuğuna sürükle-bırak</b>. Üzerine <b>sağ tık &rarr; &ldquo;Yer imlerine ekle&rdquo;</b> seçeneği de çalışır.</p>
-    <a class="bookmarklet-btn" href="javascript:(function()%7Bif%20(!%2F(%5E%7C%5C.)kobasis%5C.hyrdm%5C.org%24%2Fi.test(location.hostname))%20%7Balert('Bu%20buton%20sadece%20Kobasis%20sayfalar%C4%B1nda%20%C3%A7al%C4%B1%C5%9F%C4%B1r.%5Cn%5Cn%C5%9Eu%20an%20buradas%C4%B1n%3A%20'%20%2B%20location.hostname%20%2B%20'%5Cn%5Cn%C3%96nce%20kobasis.hyrdm.org%20adresine%20git.')%3Breturn%3B%7Dif%20(document.getElementById('itt-doldur-panel'))%20%7Bdocument.getElementById('itt-doldur-panel').remove()%3Breturn%3B%7Dvar%20panel%20%3D%20document.createElement('div')%3Bpanel.id%20%3D%20'itt-doldur-panel'%3Bpanel.style.cssText%20%3D%20'position%3Afixed%3Btop%3A20px%3Bright%3A20px%3Bwidth%3A380px%3Bbackground%3A%23fff%3Bborder%3A2px%20solid%20%232563eb%3Bborder-radius%3A12px%3Bbox-shadow%3A0%2010px%2040px%20rgba(0%2C0%2C0%2C0.25)%3Bz-index%3A999999%3Bfont-family%3Asystem-ui%2Csans-serif%3Bpadding%3A16px'%3Bpanel.innerHTML%20%3D%20''%2B%20'%3Cdiv%20style%3D%22display%3Aflex%3Bjustify-content%3Aspace-between%3Balign-items%3Acenter%3Bmargin-bottom%3A10px%22%3E'%2B%20'%20%3Cstrong%20style%3D%22color%3A%231e40af%3Bfont-size%3A15px%22%3EHissedar%20Toplu%20Doldurma%20%3Cspan%20style%3D%22font-weight%3A400%3Bcolor%3A%23888%3Bfont-size%3A11px%3Bmargin-left%3A4px%22%3Ev1.2%3C%2Fspan%3E%3C%2Fstrong%3E'%2B%20'%20%3Cbutton%20id%3D%22itt-kapat%22%20style%3D%22background%3Anone%3Bborder%3Anone%3Bfont-size%3A20px%3Bcursor%3Apointer%3Bcolor%3A%23666%22%3E%26times%3B%3C%2Fbutton%3E'%2B%20'%3C%2Fdiv%3E'%2B%20'%3Cp%20style%3D%22margin%3A0%200%208px%3Bfont-size%3A12px%3Bcolor%3A%23555%22%3EExcel%26%2339%3Bden%20%3Cb%3EAd%20Soyad%3C%2Fb%3E%20ve%20%3Cb%3ETelefon%3C%2Fb%3E%20kolonlar%C4%B1n%C4%B1%20kopyala%2C%20a%C5%9Fa%C4%9F%C4%B1ya%20yap%C4%B1%C5%9Ft%C4%B1r%3A%3C%2Fp%3E'%2B%20'%3Ctextarea%20id%3D%22itt-veri%22%20placeholder%3D%22Ahmet%20Y%C4%B1lmaz%26%239%3B5551234567%26%2310%3BMehmet%20Demir%26%239%3B5559876543%22%20style%3D%22width%3A100%25%3Bheight%3A140px%3Bborder%3A1px%20solid%20%23ccc%3Bborder-radius%3A6px%3Bpadding%3A8px%3Bfont-family%3Amonospace%3Bfont-size%3A12px%3Bbox-sizing%3Aborder-box%3Bresize%3Avertical%22%3E%3C%2Ftextarea%3E'%2B%20'%3Cdiv%20style%3D%22display%3Aflex%3Bgap%3A8px%3Bmargin-top%3A10px%22%3E'%2B%20'%20%3Cbutton%20id%3D%22itt-doldur%22%20style%3D%22flex%3A1%3Bbackground%3A%232563eb%3Bcolor%3A%23fff%3Bborder%3Anone%3Bpadding%3A10px%3Bborder-radius%3A6px%3Bfont-weight%3Abold%3Bcursor%3Apointer%3Bfont-size%3A14px%22%3EDoldur%3C%2Fbutton%3E'%2B%20'%20%3Cbutton%20id%3D%22itt-temizle%22%20style%3D%22background%3A%23f3f4f6%3Bcolor%3A%23333%3Bborder%3A1px%20solid%20%23ccc%3Bpadding%3A10px%2014px%3Bborder-radius%3A6px%3Bcursor%3Apointer%3Bfont-size%3A14px%22%3ETemizle%3C%2Fbutton%3E'%2B%20'%3C%2Fdiv%3E'%2B%20'%3Cdiv%20id%3D%22itt-sonuc%22%20style%3D%22margin-top%3A10px%3Bfont-size%3A13px%3Bmin-height%3A18px%22%3E%3C%2Fdiv%3E'%3Bdocument.body.appendChild(panel)%3Bdocument.getElementById('itt-kapat').onclick%20%3D%20function()%7B%20panel.remove()%3B%20%7D%3Bdocument.getElementById('itt-temizle').onclick%20%3D%20function()%7Bdocument.getElementById('itt-veri').value%20%3D%20''%3Bdocument.getElementById('itt-sonuc').innerHTML%20%3D%20''%3B%7D%3Bdocument.getElementById('itt-doldur').onclick%20%3D%20function()%7Bvar%20veri%20%3D%20document.getElementById('itt-veri').value%3Bvar%20sonuc%20%3D%20document.getElementById('itt-sonuc')%3Bif%20(!veri.trim())%20%7B%20sonuc.innerHTML%20%3D%20'%3Cspan%20style%3D%22color%3A%23dc2626%22%3E%C3%96nce%20veri%20yap%C4%B1%C5%9Ft%C4%B1r!%3C%2Fspan%3E'%3B%20return%3B%20%7Dvar%20satirlar%20%3D%20veri.trim().split('%5Cn').filter(function(s)%7B%20return%20s.trim()%3B%20%7D)%3Bvar%20mevcutSayi%20%3D%20document.querySelectorAll('input%5Bname%5E%3D%22shareholders%5B%22%5D%5Bname%24%3D%22.name%22%5D').length%3Bif%20(mevcutSayi%20%3C%20satirlar.length)%20%7Bsonuc.innerHTML%20%3D%20'%3Cspan%20style%3D%22color%3A%23dc2626%22%3EForm%26%2339%3Bda%20sadece%20%3Cb%3E'%20%2B%20mevcutSayi%20%2B%20'%3C%2Fb%3E%20hissedar%20sat%C4%B1r%C4%B1%20var%2C%20sen%20%3Cb%3E'%20%2B%20satirlar.length%20%2B%20'%3C%2Fb%3E%20sat%C4%B1r%20yap%C4%B1%C5%9Ft%C4%B1rd%C4%B1n.%3Cbr%3E%C3%96nce%20formdaki%20%3Cb%3E%2B%3C%2Fb%3E%20butonuna%20basarak%20'%20%2B%20(satirlar.length%20-%20mevcutSayi)%20%2B%20'%20sat%C4%B1r%20daha%20ekle%2C%20sonra%20tekrar%20Doldur%26%2339%3Ba%20bas.%3C%2Fspan%3E'%3Breturn%3B%7Dfunction%20setVal(el%2C%20val)%7Bvar%20setter%20%3D%20Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype%2C%20'value').set%3Bsetter.call(el%2C%20val)%3Bel.dispatchEvent(new%20Event('input'%2C%20%7B%20bubbles%3A%20true%20%7D))%3Bel.dispatchEvent(new%20Event('change'%2C%20%7B%20bubbles%3A%20true%20%7D))%3Bel.dispatchEvent(new%20Event('blur'%2C%20%7B%20bubbles%3A%20true%20%7D))%3B%7Dfunction%20temizTel(t)%7Bvar%20d%20%3D%20(t%20%7C%7C%20'').replace(%2F%5CD%2Fg%2C'').replace(%2F%5E0%2B%2F%2C%20'')%3Bif%20(d.indexOf('90')%20%3D%3D%3D%200%20%26%26%20d.length%20%3E%2010)%20d%20%3D%20d.slice(2)%3Breturn%20d%3B%7Dfunction%20gecerliTel(d)%7Breturn%20d.length%20%3D%3D%3D%2010%20%26%26%20d.charAt(0)%20%3D%3D%3D%20'5'%3B%7Dfunction%20kacirKacirma(s)%7Breturn%20String(s).replace(%2F%5B%26%3C%3E%22'%5D%2Fg%2Cfunction(c)%7Breturn%7B'%26'%3A'%26amp%3B'%2C'%3C'%3A'%26lt%3B'%2C'%3E'%3A'%26gt%3B'%2C'%22'%3A'%26quot%3B'%2C%22'%22%3A'%26%2339%3B'%7D%5Bc%5D%3B%7D)%3B%7Dvar%20satirDetay%20%3D%20satirlar.map(function(satir%2C%20i)%7Bvar%20parts%20%3D%20satir.split('%5Ct')%3Bif%20(parts.length%20%3C%202)%20%7Bvar%20m%20%3D%20satir.match(%2F%5E(.%2B%3F)%5Cs%2B(%5C%2B%3F%5Cd%5B%5Cd%5Cs%5C(%5C)%5C-%5D%7B7%2C%7D)%24%2F)%3Bif%20(m)%20parts%20%3D%20%5Bm%5B1%5D%2C%20m%5B2%5D%5D%3B%7Dvar%20isim%20%3D%20(parts%5B0%5D%20%7C%7C%20'').trim()%3Bvar%20telHam%20%3D%20(parts%5B1%5D%20%7C%7C%20'').trim()%3Bvar%20tel%20%3D%20temizTel(telHam)%3Breturn%20%7B%20i%3A%20i%2C%20isim%3A%20isim%2C%20ham%3A%20telHam%2C%20tel%3A%20tel%2C%20gecerli%3A%20gecerliTel(tel)%20%7D%3B%7D)%3Bvar%20hataliSatirlar%20%3D%20satirDetay.filter(function(s)%7B%20return%20!s.gecerli%3B%20%7D)%3Bif%20(hataliSatirlar.length)%20%7Bvar%20liste%20%3D%20hataliSatirlar.map(function(s)%7Bvar%20sebep%20%3D%20s.tel.length%20%3D%3D%3D%200%20%3F%20'bo%C5%9F'%20%3A%20(s.tel.length%20!%3D%3D%2010%20%3F%20s.tel.length%20%2B%20'%20hane%20(10%20olmal%C4%B1)'%20%3A%20'5%20ile%20ba%C5%9Flam%C4%B1yor')%3Breturn%20'%3Cdiv%20style%3D%22margin%3A4px%200%22%3E%3Cb%3ESat%C4%B1r%20'%20%2B%20(s.i%20%2B%201)%20%2B%20'%3A%3C%2Fb%3E%20'%20%2B%20kacirKacirma(s.isim%20%7C%7C%20'(isimsiz)')%20%2B%20'%20%26rarr%3B%20%3Ccode%20style%3D%22background%3A%23fee%3Bpadding%3A1px%204px%3Bborder-radius%3A3px%22%3E'%20%2B%20kacirKacirma(s.ham%20%7C%7C%20'(bo%C5%9F)')%20%2B%20'%3C%2Fcode%3E%20%3Cspan%20style%3D%22color%3A%23999%22%3E('%20%2B%20sebep%20%2B%20')%3C%2Fspan%3E%3C%2Fdiv%3E'%3B%7D).join('')%3Bsonuc.innerHTML%20%3D%20'%3Cdiv%20style%3D%22padding%3A10px%3Bbackground%3A%23fef2f2%3Bborder-left%3A3px%20solid%20%23dc2626%3Bborder-radius%3A4px%3Bfont-size%3A12px%3Bmax-height%3A200px%3Boverflow-y%3Aauto%22%3E%3Cb%20style%3D%22color%3A%23dc2626%22%3E%E2%9A%A0%20'%20%2B%20hataliSatirlar.length%20%2B%20'%20sat%C4%B1rda%20ge%C3%A7ersiz%20telefon.%3C%2Fb%3E%20Hi%C3%A7bir%20%C5%9Fey%20doldurulmad%C4%B1%20%E2%80%94%20%C3%B6nce%20bu%20sat%C4%B1rlar%C4%B1%20d%C3%BCzelt%3A%3Cdiv%20style%3D%22margin-top%3A6px%22%3E'%20%2B%20liste%20%2B%20'%3C%2Fdiv%3E%3C%2Fdiv%3E'%3Breturn%3B%7Dvar%20basarili%20%3D%200%2C%20domHata%20%3D%200%3BsatirDetay.forEach(function(s)%7Bvar%20isimEl%20%3D%20document.querySelector('input%5Bname%3D%22shareholders%5B'%20%2B%20s.i%20%2B%20'%5D.name%22%5D')%3Bvar%20telEl%20%3D%20document.querySelector('input%5Bname%3D%22shareholders%5B'%20%2B%20s.i%20%2B%20'%5D.phone_number%22%5D')%3Bif%20(!isimEl%20%7C%7C%20!telEl)%20%7B%20domHata%2B%2B%3B%20return%3B%20%7DisimEl.focus()%3B%20setVal(isimEl%2C%20s.isim)%3BtelEl.focus()%3B%20setVal(telEl%2C%20s.tel)%3Bbasarili%2B%2B%3B%7D)%3Bdocument.activeElement%20%26%26%20document.activeElement.blur()%3Bsonuc.innerHTML%20%3D%20'%3Cspan%20style%3D%22color%3A%2316a34a%22%3E%E2%9C%93%20%3Cb%3E'%20%2B%20basarili%20%2B%20'%3C%2Fb%3E%20sat%C4%B1r%20dolduruldu.%3C%2Fspan%3E'%20%2B%20(domHata%20%3F%20'%20%3Cspan%20style%3D%22color%3A%23dc2626%22%3E'%20%2B%20domHata%20%2B%20'%20form%20hatas%C4%B1.%3C%2Fspan%3E'%20%3A%20'')%3B%7D%3B%7D)()%3B" onclick="alert('Bu butonu tıklama — bunu yer imleri çubuğuna sürükle! Detaylar aşağıda.'); return false;">
-      <span class="arrow">&#9881;</span> Hissedar Doldur
+    <a class="bookmarklet-btn" href="javascript:alert(%27Sayfanın%20kurulum%20scripti%20yüklenmedi%20%E2%80%94%20sayfayı%20yenile.%27)" onclick="alert('Bu butonu tıklama — bunu yer imleri çubuğuna sürükle! Detaylar aşağıda.'); return false;">
+      <span class="arrow">&#9881;</span> Hissedar Doldur <span data-version style="margin-left:8px;padding:2px 8px;background:rgba(37,99,235,0.12);border-radius:10px;font-size:12px;font-weight:600;letter-spacing:0.02em"></span>
     </a>
     <div class="hint">Yer imleri çubuğu görünmüyorsa &rarr; Chrome: <b>Ctrl+Shift+B</b>, Safari: <b>Cmd+Shift+B</b></div>
   </div>
@@ -308,7 +308,7 @@ Ayşe Kaya&#9;0 (555) 111 22 33</div>
 
   <details class="faq-item">
     <summary>Butonu güncellediniz, bende eski sürüm var. Nasıl yenilerim?</summary>
-    <p>Yer imindeki eski butonu <b>sağ tık &rarr; Sil</b> ile kaldır, bu sayfayı yenile, sonra yeni butonu tekrar yer imleri çubuğuna sürükle-bırak yap. Panelin sağ üstündeki versiyon numarasından (<code>v1.0</code>) hangi sürümü kullandığını görebilirsin.</p>
+    <p>Yer imindeki eski butonu <b>sağ tık &rarr; Sil</b> ile kaldır, bu sayfayı yenile, sonra yeni butonu tekrar yer imleri çubuğuna sürükle-bırak yap. Panelin sağ üstündeki versiyon numarasından (<code data-version></code>) hangi sürümü kullandığını görebilirsin.</p>
   </details>
 
   <footer>
@@ -316,5 +316,70 @@ Ayşe Kaya&#9;0 (555) 111 22 33</div>
   </footer>
 
 </div>
+
+<script type="text/plain" id="bookmarklet-src">(function(){
+if (!/(^|\.)kobasis\.hyrdm\.org$/i.test(location.hostname)) {
+alert('Bu buton sadece Kobasis sayfalarında çalışır.\n\nŞu an buradasın: ' + location.hostname + '\n\nÖnce kobasis.hyrdm.org adresine git.');
+return;
+}
+if (document.getElementById('itt-doldur-panel')) {document.getElementById('itt-doldur-panel').remove();return;}
+var panel = document.createElement('div');
+panel.id = 'itt-doldur-panel';
+panel.style.cssText = 'position:fixed;top:20px;right:20px;width:380px;background:#fff;border:2px solid #2563eb;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.25);z-index:999999;font-family:system-ui,sans-serif;padding:16px';
+panel.innerHTML = ''+ '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">'+ ' <strong style="color:#1e40af;font-size:15px">Hissedar Toplu Doldurma <span style="font-weight:400;color:#888;font-size:11px;margin-left:4px">__VERSION__</span></strong>'+ ' <button id="itt-kapat" style="background:none;border:none;font-size:20px;cursor:pointer;color:#666">&times;</button>'+ '</div>'+ '<p style="margin:0 0 8px;font-size:12px;color:#555">Excel&#39;den <b>Ad Soyad</b> ve <b>Telefon</b> kolonlarını kopyala, aşağıya yapıştır:</p>'+ '<textarea id="itt-veri" placeholder="Ahmet Yılmaz&#9;5551234567&#10;Mehmet Demir&#9;5559876543" style="width:100%;height:140px;border:1px solid #ccc;border-radius:6px;padding:8px;font-family:monospace;font-size:12px;box-sizing:border-box;resize:vertical"></textarea>'+ '<div style="display:flex;gap:8px;margin-top:10px">'+ ' <button id="itt-doldur" style="flex:1;background:#2563eb;color:#fff;border:none;padding:10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:14px">Doldur</button>'+ ' <button id="itt-temizle" style="background:#f3f4f6;color:#333;border:1px solid #ccc;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:14px">Temizle</button>'+ '</div>'+ '<div id="itt-sonuc" style="margin-top:10px;font-size:13px;min-height:18px"></div>';
+document.body.appendChild(panel);
+document.getElementById('itt-kapat').onclick = function(){ panel.remove(); };
+document.getElementById('itt-temizle').onclick = function(){document.getElementById('itt-veri').value = '';document.getElementById('itt-sonuc').innerHTML = '';};
+document.getElementById('itt-doldur').onclick = function(){
+var veri = document.getElementById('itt-veri').value;
+var sonuc = document.getElementById('itt-sonuc');
+if (!veri.trim()) { sonuc.innerHTML = '<span style="color:#dc2626">Önce veri yapıştır!</span>'; return; }
+var satirlar = veri.trim().split('\n').filter(function(s){ return s.trim(); });
+var mevcutSayi = document.querySelectorAll('input[name^="shareholders["][name$=".name"]').length;
+if (mevcutSayi < satirlar.length) {sonuc.innerHTML = '<span style="color:#dc2626">Form&#39;da sadece <b>' + mevcutSayi + '</b> hissedar satırı var, sen <b>' + satirlar.length + '</b> satır yapıştırdın.<br>Önce formdaki <b>+</b> butonuna basarak ' + (satirlar.length - mevcutSayi) + ' satır daha ekle, sonra tekrar Doldur&#39;a bas.</span>';return;}
+function setVal(el, val){var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(el, val);el.dispatchEvent(new Event('input', { bubbles: true }));el.dispatchEvent(new Event('change', { bubbles: true }));el.dispatchEvent(new Event('blur', { bubbles: true }));}
+function temizTel(t){var d = (t || '').replace(/\D/g,'').replace(/^0+/, '');if (d.indexOf('90') === 0 && d.length > 10) d = d.slice(2);return d;}
+function gecerliTel(d){return d.length === 10 && d.charAt(0) === '5';}
+function kacirKacirma(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+var satirDetay = satirlar.map(function(satir, i){
+var parts = satir.split('\t');
+if (parts.length < 2) {var m = satir.match(/^(.+?)\s+(\+?\d[\d\s\(\)\-]{7,})$/);if (m) parts = [m[1], m[2]];}
+var isim = (parts[0] || '').trim();
+var telHam = (parts[1] || '').trim();
+var tel = temizTel(telHam);
+return { i: i, isim: isim, ham: telHam, tel: tel, gecerli: gecerliTel(tel) };
+});
+var hataliSatirlar = satirDetay.filter(function(s){ return !s.gecerli; });
+if (hataliSatirlar.length) {
+var liste = hataliSatirlar.map(function(s){
+var sebep = s.tel.length === 0 ? 'boş' : (s.tel.length !== 10 ? s.tel.length + ' hane (10 olmalı)' : '5 ile başlamıyor');
+return '<div style="margin:4px 0"><b>Satır ' + (s.i + 1) + ':</b> ' + kacirKacirma(s.isim || '(isimsiz)') + ' &rarr; <code style="background:#fee;padding:1px 4px;border-radius:3px">' + kacirKacirma(s.ham || '(boş)') + '</code> <span style="color:#999">(' + sebep + ')</span></div>';
+}).join('');
+sonuc.innerHTML = '<div style="padding:10px;background:#fef2f2;border-left:3px solid #dc2626;border-radius:4px;font-size:12px;max-height:200px;overflow-y:auto"><b style="color:#dc2626">⚠ ' + hataliSatirlar.length + ' satırda geçersiz telefon.</b> Hiçbir şey doldurulmadı — önce bu satırları düzelt:<div style="margin-top:6px">' + liste + '</div></div>';
+return;
+}
+var basarili = 0, domHata = 0;
+satirDetay.forEach(function(s){
+var isimEl = document.querySelector('input[name="shareholders[' + s.i + '].name"]');
+var telEl = document.querySelector('input[name="shareholders[' + s.i + '].phone_number"]');
+if (!isimEl || !telEl) { domHata++; return; }
+isimEl.focus(); setVal(isimEl, s.isim);
+telEl.focus(); setVal(telEl, s.tel);
+basarili++;
+});
+document.activeElement && document.activeElement.blur();
+sonuc.innerHTML = '<span style="color:#16a34a">✓ <b>' + basarili + '</b> satır dolduruldu.</span>' + (domHata ? ' <span style="color:#dc2626">' + domHata + ' form hatası.</span>' : '');
+};
+})();</script>
+
+<script>
+(function(){
+  var VERSION = 'v1.3';
+  document.querySelectorAll('[data-version]').forEach(function(el){ el.textContent = VERSION; });
+  var src = document.getElementById('bookmarklet-src').textContent.replace(/__VERSION__/g, VERSION);
+  var href = 'javascript:' + encodeURIComponent(src.replace(/\n/g, ''));
+  document.querySelectorAll('.bookmarklet-btn').forEach(function(el){ el.href = href; });
+})();
+</script>
 </body>
 </html>
