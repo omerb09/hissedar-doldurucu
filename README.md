@@ -37,4 +37,4 @@ Bookmarklet'i güncellemek için:
 
 ## Sürüm
 
-Bookmarklet içi sürüm: **v1.0**
+Bookmarklet içi sürüm: **v1.1**
